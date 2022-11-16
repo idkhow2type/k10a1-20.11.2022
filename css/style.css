@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: radial-gradient(lightblue, blue);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    color: white;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    place-items: center;
+}
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#slide {
+    width: 20%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    overflow: hidden;
+    background-image: url('../asset/1.jpg');
+    background-size: cover;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+.hide {
+    opacity: 0;
+}
+h1 {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 45px;
+}
+
+@keyframes floating-heart {
+    0% {
+        opacity: 0;
+        transform: translate(0, w);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(70vw, -20vh);
+    }
+    20% {
+        transform: translate(10vw, -40vh);
+    }
+    30% {
+        transform: translate(50vw, -60vh);
+    }
+    40% {
+        opacity: 1;
+        transform: translate(5vw, -80vh);
+    }
+    48% {
+        opacity: 0;
+        transform: translate(60vw, -100vh);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(90vw, -100vh);
+    }
+}
+
+.heart {
+    position: fixed;
+    height: 20px;
+    min-height: 25px;
+    width: 20px;
+    min-width: 25px;
+    background-color: red;
+    -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+    mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: bottom;
+    mask-position: bottom;
+    opacity: 0;
+    top: 110vh;
+    animation: floating-heart 15s infinite cubic-bezier(0.5, 0.5, 0.5, 0.5);
+}
+
+.credit-text {
+    text-align: center;
+    font-size: 20px;
+}
+
+#arrow {
+    width: 1rem;
+    fill: white;
+}
+
+.credit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 25%;
+}

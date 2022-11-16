@@ -3,117 +3,8 @@
 <html>
     <head>
         <title>20-11</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-            html,
-            body {
-                padding: 0;
-                margin: 0;
-                background: radial-gradient(lightblue, blue);
-                font-family: 'Montserrat', sans-serif;
-                overflow: hidden;
-            }
-
-            .wrapper {
-                width: 100%;
-                height: 100%;
-                display: grid;
-                grid-template-rows: min-content 1fr;
-                place-items: center;
-                /* justify-content: center; */
-            }
-            canvas {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            #slide {
-                width: 20%;
-                aspect-ratio: 1/1;
-                border-radius: 50%;
-                transition: transform 0.2s;
-                overflow: hidden;
-                background-image: url('asset/1.jpg');
-                background-size: cover;
-            }
-
-            .rotate {
-                transform: rotate(180deg);
-            }
-            .hide {
-                opacity: 0;
-            }
-            h1 {
-                color: white;
-                width: 100%;
-                margin: 0;
-                text-align: center;
-                font-size: 45px;
-            }
-
-            @keyframes floating-heart {
-                0% {
-                    opacity: 0;
-                    /* bottom: 0%;
-                    left: 0%; */
-                    transform: translate(0, 0);
-                }
-                10% {
-                    opacity: 1;
-                    /* bottom: 20%;
-                    left: 70%; */
-                    transform: translate(70vh, -20vh);
-                }
-                20% {
-                    bottom: 40%;
-                    left: 10%;
-                    transform: translate(10vh, -50vh);
-                }
-                30% {
-                    /* bottom: 60%;
-                    left: 50%; */
-                    transform: translate(50vh, -60vh);
-                }
-                40% {
-                    opacity: 1;
-                    /* bottom: 80%;
-                    left: 5%; */
-                    transform: translate(5vh, -80vh);
-                }
-                48% {
-                    opacity: 0;
-                    /* bottom: 100%;
-                    left: 60%; */
-                    transform: translate(60vh, -100vh);
-                }
-                100% {
-                    opacity: 0;
-                    /* bottom: 100%;
-                    left: 90%; */
-                    transform: translate(90vh, -100vh);
-                }
-            }
-
-            .heart {
-                position: absolute;
-                height: 20px;
-                min-height: 25px;
-                width: 20px;
-                min-width: 25px;
-                background-color: red;
-                -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
-                mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>');
-                -webkit-mask-repeat: no-repeat;
-                mask-repeat: no-repeat;
-                -webkit-mask-position: bottom;
-                mask-position: bottom;
-                opacity: 0;
-                top: 110vh;
-                animation: floating-heart 15s infinite
-                    cubic-bezier(0.5, 0.5, 0.5, 0.5);
-            }
-        </style>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/script.js"></script>
     </head>
     <body>
         <canvas id="pinkboard"></canvas>
@@ -529,36 +420,35 @@
         <div class="wrapper">
             <h1>LỚP 10A1 CHÚC MỪNG CÁC THẦY CÔ NGÀY 20/11 :D</h1>
             <div alt="" id="slide"></div>
+            <div class="credit-text">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-up"
+                    viewBox="0 0 16 16"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+                    />
+                </svg>
+                <br />
+                <span>Credits</span>
+            </div>
         </div>
-        <!-- <div class="heart"></div> -->
-        <script>
-            function setImage(name) {
-                const img = document.querySelector('#slide');
-                img.classList.toggle('rotate');
-                const event = (e) => {
-                    img.removeEventListener('transitionend', event);
-                    img.style.backgroundImage = `url(asset/${name})`;
-                    img.classList.toggle('rotate');
-                };
-                img.addEventListener('transitionend', event);
-            }
-
-            let img = 1;
-            const imgInterval = setInterval(() => {
-                img++;
-                setImage(`${img}.jpg`);
-                if (img > 15) clearInterval(imgInterval);
-            }, 1000);
-
-            let heart = 0;
-            const heartInterval = setInterval(() => {
-                const div = document.createElement('div');
-                div.style.left = `${Math.floor(Math.random() * 100)}vw`;
-                div.classList.add('heart');
-                document.body.appendChild(div);
-                heart++;
-                if (heart > 50) clearInterval(heartInterval);
-            }, 500);
-        </script>
+        <div class="credit">
+            <h2>Lời chúc</h2>
+            <p>Nguyễn Gia Khánh</p>
+            <h2>Gấp hoa</h2>
+            <p>Lê Phước Thành Sang, Phan Quang Minh, Lê Quang Huy</p>
+            <h2>QR code</h2>
+            <p>Lê Cao Minh</p>
+            <h2>Thiết kế</h2>
+            <p>Nguyễn Phương Yến Ngọc</p>
+            <h2>Tư liệu</h2>
+            <p>Nguyễn Đình An, Đoàn Đình Anh, Sầm Nhật Lâm</p>
+        </div>
     </body>
 </html>
