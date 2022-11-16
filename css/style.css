@@ -98,7 +98,6 @@ h1 {
 }
 
 #arrow {
-    width: 1rem;
     fill: white;
 }
 
@@ -106,4 +105,8 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 25%;
+}
+
+::-webkit-scrollbar {
+    width: 0;
 }

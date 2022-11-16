@@ -11,9 +11,8 @@ function setImage(name) {
 
 let img = 1;
 const imgInterval = setInterval(() => {
-    img++;
+    img = (img % 16) + 1;
     setImage(`${img}.jpg`);
-    if (img > 15) clearInterval(imgInterval);
 }, 1000);
 
 let heart = 0;
