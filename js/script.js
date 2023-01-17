@@ -1,5 +1,7 @@
 function setSlide(img) {
     const oldImg = document.querySelector('img');
+    // TODO: make images swap at 180deg
+    // probably wont do it tho, will pull in code if someone does
     oldImg.classList.remove('loading')
     oldImg.classList.toggle('rotate');
     oldImg.addEventListener('transitionend', () => {
